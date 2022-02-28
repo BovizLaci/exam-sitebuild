@@ -22,6 +22,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	box-sizing: border-box;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -47,3 +48,139 @@ table {
 	border-spacing: 0;
 }
 /* Resert finished */
+
+
+:root {
+	--back-color: #ffeedf;
+	--front-color: #145434;
+  }
+  
+body {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--back-color);
+	color: var(--front-color);
+	font-family: 'Space Grotesk', sans-serif;
+	
+	header {
+		display: flex;
+		justify-content: space-between;
+		min-height: 60px;
+		width: 100%;
+		border-bottom: 2px solid var(--front-color);
+		padding: 10px 20px;
+		
+		p {
+			font-size: 36px;
+			font-weight: 700;
+		}
+
+		span.material-icons {
+			font-size: 36px;
+		}
+
+	}
+
+	div#cards {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 60px;
+		margin: 0 auto;
+		padding: 60px 40px;
+		max-width: 1200px;
+
+		div.beer {
+			position: relative;
+			
+			div.preview {
+				display: flex;
+				flex-direction: column;
+				// justify-content: space-between;
+				background-color: var(--front-color);
+				color: var(--back-color);
+				width: 400px;
+				height: 250px;
+				padding: 30px 40px;
+
+				p.title {
+					height: 100px;
+					border-bottom: 1px solid var(--back-color);
+					font-size: 36px;
+					line-height: 45px;
+				}
+
+				div.type {
+					margin-top: 10px;
+
+					p {
+						font-size: 18px;
+						line-height: 24px;
+					}
+
+					p.text {
+						font-weight: bold;
+					}
+				}
+			}
+				
+			div.no {
+				position: absolute;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				border: 2px solid var(--front-color);
+				background-color: var(--back-color);
+				top: 0;
+				left: 0;
+				transform: translate(-50%, -50%);
+				
+				p {
+					color: var(--front-color);
+					font-size: 24px;
+				}
+			}
+
+			button {
+				position: absolute;
+				width: 200px;
+				height: 50px;
+				right: 0;
+				bottom: 0;
+				background-color: var(--back-color);
+				color: var(--front-color);
+				border: 2px solid var(--front-color);
+				padding: 10px;
+				transform: translate(10px, 10px);
+
+				p.buttonText {
+					display: inline-block;
+					font-weight: 700;
+					font-size: 14px;
+
+				}
+
+				p.buttonIcon {
+					display: inline-block;
+					position: absolute;
+					right: 5px;
+					top: 25px;
+					transform: translateY(-50%);
+
+					.material-icons {
+						font-size: 36px;
+					}
+				}
+			}
+
+			button:hover {
+				background-color: var(--front-color);
+				color: var(--back-color);
+				border-color: var(--back-color);
+				}
+			}
+		}
+	}

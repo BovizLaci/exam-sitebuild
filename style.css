@@ -1,49 +1,217 @@
-/*** The new CSS Reset - version 1.4.2 (last updated 30.11.2021) ***/
-/*
-    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
-    - The "symbol *" part is to solve Firefox SVG sprite bug
- */
-*:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
-  all: unset;
-  display: revert;
-}
-
-/* Preferred box-sizing value */
-*,
-*::before,
-*::after {
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-/* Remove list styles (bullets/numbers) */
-ol, ul, menu {
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
   list-style: none;
 }
 
-/* For images to not be able to exceed their container */
-img {
-  max-width: 100%;
+blockquote, q {
+  quotes: none;
 }
 
-/* removes spacing between cells in tables */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
 table {
   border-collapse: collapse;
-}
-
-/* revert the 'white-space' property for textarea elements on Safari */
-textarea {
-  white-space: revert;
-}
-
-/* revert for bug in Chromium browsers
-   - fix for the content editable attribute will work properly. */
-:where([contenteditable]) {
-  -moz-user-modify: read-write;
-  -webkit-user-modify: read-write;
-  overflow-wrap: break-word;
-  -webkit-line-break: after-white-space;
+  border-spacing: 0;
 }
 
 /* Resert finished */
+:root {
+  --back-color: #ffeedf;
+  --front-color: #145434;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: var(--back-color);
+  color: var(--front-color);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+body header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-height: 60px;
+  width: 100%;
+  border-bottom: 2px solid var(--front-color);
+  padding: 10px 20px;
+}
+
+body header p {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+body header span.material-icons {
+  font-size: 36px;
+}
+
+body div#cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 60px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  max-width: 1200px;
+}
+
+body div#cards div.beer {
+  position: relative;
+}
+
+body div#cards div.beer div.preview {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: var(--front-color);
+  color: var(--back-color);
+  width: 400px;
+  height: 250px;
+  padding: 30px 40px;
+}
+
+body div#cards div.beer div.preview p.title {
+  height: 100px;
+  border-bottom: 1px solid var(--back-color);
+  font-size: 36px;
+  line-height: 45px;
+}
+
+body div#cards div.beer div.preview div.type {
+  margin-top: 10px;
+}
+
+body div#cards div.beer div.preview div.type p {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+body div#cards div.beer div.preview div.type p.text {
+  font-weight: bold;
+}
+
+body div#cards div.beer div.no {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--front-color);
+  background-color: var(--back-color);
+  top: 0;
+  left: 0;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+body div#cards div.beer div.no p {
+  color: var(--front-color);
+  font-size: 24px;
+}
+
+body div#cards div.beer button {
+  position: absolute;
+  width: 200px;
+  height: 50px;
+  right: 0;
+  bottom: 0;
+  background-color: var(--back-color);
+  color: var(--front-color);
+  border: 2px solid var(--front-color);
+  padding: 10px;
+  -webkit-transform: translate(10px, 10px);
+          transform: translate(10px, 10px);
+}
+
+body div#cards div.beer button p.buttonText {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+body div#cards div.beer button p.buttonIcon {
+  display: inline-block;
+  position: absolute;
+  right: 5px;
+  top: 25px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+body div#cards div.beer button p.buttonIcon .material-icons {
+  font-size: 36px;
+}
+
+body div#cards div.beer button:hover {
+  background-color: var(--front-color);
+  color: var(--back-color);
+  border-color: var(--back-color);
+}
 /*# sourceMappingURL=style.css.map */
