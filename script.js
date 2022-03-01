@@ -52,22 +52,22 @@ const beers =
 }
 ]
 
-function load() {
-	const cardsDiv = document.querySelector("div#cards");
-	const beerDiv = document.querySelector("div.beer");
-    console.log(beers);
-    beerDiv.querySelector("p.no").innerText = 1;
-    beerDiv.querySelector("p.title").innerText = beers[0].title;
-    beerDiv.querySelector("p.text").innerText = beers[0].text;
-    beerDiv.querySelector("p.sub").innerText = beers[0].sub;
+function fillCard(card, beer, index) {
+    card.querySelector("p.no").innerText = index;
+    card.querySelector("p.title").innerText = beer.title;
+    card.querySelector("p.text").innerText = beer.text;
+    card.querySelector("p.sub").innerText = beer.sub;
+}
+
+function addAndFillCards() {
+	const cardsElement = document.querySelector("main");
+	const firstBeerCard = document.querySelector("div.beer");
+    fillCard(firstBeerCard, beers[0], 1);
     for (let i = 1; i < beers.length; i++) {
-        const newBeerDiv = beerDiv.cloneNode(true);
-        newBeerDiv.querySelector("p.no").innerText = i + 1;
-        newBeerDiv.querySelector("p.title").innerText = beers[i].title;
-        newBeerDiv.querySelector("p.text").innerText = beers[i].text;
-        newBeerDiv.querySelector("p.sub").innerText = beers[i].sub;
-        cardsDiv.appendChild(newBeerDiv);
+        const newBeerCard = firstBeerCard.cloneNode(true);
+        fillCard(newBeerCard, beers[i], i+1);
+        cardsElement.appendChild(newBeerCard);
     }
 }
 
-window.addEventListener('load', load);
+window.addEventListener('load', addAndFillCards);

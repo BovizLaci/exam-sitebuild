@@ -51,61 +51,67 @@ table {
 
 
 :root {
-	--back-color: #ffeedf;
-	--front-color: #145434;
-  }
-  
+	--primary-color: #ffeedf;
+	--secondary-color: #145434;
+}
+
 body {
 	display: flex;
 	flex-direction: column;
-	background-color: var(--back-color);
-	color: var(--front-color);
+	background-color: var(--primary-color);
+	color: var(--secondary-color);
 	font-family: 'Space Grotesk', sans-serif;
 	
+.material-icons {
+	font-size: 36px;
+}
+
 	header {
 		display: flex;
 		justify-content: space-between;
-		min-height: 60px;
+		align-items: center;
+
+		position: fixed;
+		z-index: 10000;
+
 		width: 100%;
-		border-bottom: 2px solid var(--front-color);
+		min-height: 60px;
+
 		padding: 10px 20px;
+		background-color: var(--primary-color);
+		border-bottom: 2px solid var(--secondary-color);
+		font-size: 36px;
+		font-weight: 700;
 		
-		p {
-			font-size: 36px;
-			font-weight: 700;
-		}
-
-		span.material-icons {
-			font-size: 36px;
-		}
-
 	}
 
-	div#cards {
+	main {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
 		gap: 60px;
 		margin: 0 auto;
 		padding: 60px 40px;
+		padding-top: 120px;
 		max-width: 1200px;
 
 		div.beer {
 			position: relative;
+			flex-basis: 400px;
+			min-width: 370px;
 			
 			div.preview {
 				display: flex;
 				flex-direction: column;
-				// justify-content: space-between;
-				background-color: var(--front-color);
-				color: var(--back-color);
-				width: 400px;
+				background-color: var(--secondary-color);
+				color: var(--primary-color);
+				// width: 400px;
 				height: 250px;
 				padding: 30px 40px;
 
 				p.title {
 					height: 100px;
-					border-bottom: 1px solid var(--back-color);
+					border-bottom: 1px solid var(--primary-color);
 					font-size: 36px;
 					line-height: 45px;
 				}
@@ -119,7 +125,7 @@ body {
 					}
 
 					p.text {
-						font-weight: bold;
+						font-weight: 700;
 					}
 				}
 			}
@@ -132,14 +138,14 @@ body {
 				width: 40px;
 				height: 40px;
 				border-radius: 50%;
-				border: 2px solid var(--front-color);
-				background-color: var(--back-color);
+				border: 2px solid var(--secondary-color);
+				background-color: var(--primary-color);
 				top: 0;
 				left: 0;
 				transform: translate(-50%, -50%);
 				
 				p {
-					color: var(--front-color);
+					color: var(--secondary-color);
 					font-size: 24px;
 				}
 			}
@@ -148,19 +154,17 @@ body {
 				position: absolute;
 				width: 200px;
 				height: 50px;
-				right: 0;
-				bottom: 0;
-				background-color: var(--back-color);
-				color: var(--front-color);
-				border: 2px solid var(--front-color);
+				right: -10px;
+				bottom: -10px;
+				background-color: var(--primary-color);
+				color: var(--secondary-color);
+				border: 2px solid var(--secondary-color);
 				padding: 10px;
-				transform: translate(10px, 10px);
 
 				p.buttonText {
 					display: inline-block;
 					font-weight: 700;
 					font-size: 14px;
-
 				}
 
 				p.buttonIcon {
@@ -177,9 +181,9 @@ body {
 			}
 
 			button:hover {
-				background-color: var(--front-color);
-				color: var(--back-color);
-				border-color: var(--back-color);
+				background-color: var(--secondary-color);
+				color: var(--primary-color);
+				border-color: var(--primary-color);
 				}
 			}
 		}

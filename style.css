@@ -56,8 +56,8 @@ table {
 
 /* Resert finished */
 :root {
-  --back-color: #ffeedf;
-  --front-color: #145434;
+  --primary-color: #ffeedf;
+  --secondary-color: #145434;
 }
 
 body {
@@ -68,9 +68,13 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: var(--back-color);
-  color: var(--front-color);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
   font-family: 'Space Grotesk', sans-serif;
+}
+
+body .material-icons {
+  font-size: 36px;
 }
 
 body header {
@@ -80,22 +84,21 @@ body header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  min-height: 60px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  z-index: 10000;
   width: 100%;
-  border-bottom: 2px solid var(--front-color);
+  min-height: 60px;
   padding: 10px 20px;
-}
-
-body header p {
+  background-color: var(--primary-color);
+  border-bottom: 2px solid var(--secondary-color);
   font-size: 36px;
   font-weight: 700;
 }
 
-body header span.material-icons {
-  font-size: 36px;
-}
-
-body div#cards {
+body main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -107,14 +110,18 @@ body div#cards {
   gap: 60px;
   margin: 0 auto;
   padding: 60px 40px;
+  padding-top: 120px;
   max-width: 1200px;
 }
 
-body div#cards div.beer {
+body main div.beer {
   position: relative;
+  -ms-flex-preferred-size: 400px;
+      flex-basis: 400px;
+  min-width: 370px;
 }
 
-body div#cards div.beer div.preview {
+body main div.beer div.preview {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -122,34 +129,33 @@ body div#cards div.beer div.preview {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: var(--front-color);
-  color: var(--back-color);
-  width: 400px;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
   height: 250px;
   padding: 30px 40px;
 }
 
-body div#cards div.beer div.preview p.title {
+body main div.beer div.preview p.title {
   height: 100px;
-  border-bottom: 1px solid var(--back-color);
+  border-bottom: 1px solid var(--primary-color);
   font-size: 36px;
   line-height: 45px;
 }
 
-body div#cards div.beer div.preview div.type {
+body main div.beer div.preview div.type {
   margin-top: 10px;
 }
 
-body div#cards div.beer div.preview div.type p {
+body main div.beer div.preview div.type p {
   font-size: 18px;
   line-height: 24px;
 }
 
-body div#cards div.beer div.preview div.type p.text {
-  font-weight: bold;
+body main div.beer div.preview div.type p.text {
+  font-weight: 700;
 }
 
-body div#cards div.beer div.no {
+body main div.beer div.no {
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -163,40 +169,38 @@ body div#cards div.beer div.no {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid var(--front-color);
-  background-color: var(--back-color);
+  border: 2px solid var(--secondary-color);
+  background-color: var(--primary-color);
   top: 0;
   left: 0;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
 
-body div#cards div.beer div.no p {
-  color: var(--front-color);
+body main div.beer div.no p {
+  color: var(--secondary-color);
   font-size: 24px;
 }
 
-body div#cards div.beer button {
+body main div.beer button {
   position: absolute;
   width: 200px;
   height: 50px;
-  right: 0;
-  bottom: 0;
-  background-color: var(--back-color);
-  color: var(--front-color);
-  border: 2px solid var(--front-color);
+  right: -10px;
+  bottom: -10px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
   padding: 10px;
-  -webkit-transform: translate(10px, 10px);
-          transform: translate(10px, 10px);
 }
 
-body div#cards div.beer button p.buttonText {
+body main div.beer button p.buttonText {
   display: inline-block;
   font-weight: 700;
   font-size: 14px;
 }
 
-body div#cards div.beer button p.buttonIcon {
+body main div.beer button p.buttonIcon {
   display: inline-block;
   position: absolute;
   right: 5px;
@@ -205,13 +209,13 @@ body div#cards div.beer button p.buttonIcon {
           transform: translateY(-50%);
 }
 
-body div#cards div.beer button p.buttonIcon .material-icons {
+body main div.beer button p.buttonIcon .material-icons {
   font-size: 36px;
 }
 
-body div#cards div.beer button:hover {
-  background-color: var(--front-color);
-  color: var(--back-color);
-  border-color: var(--back-color);
+body main div.beer button:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 /*# sourceMappingURL=style.css.map */
